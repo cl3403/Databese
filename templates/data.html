@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+  <ul class=entries>
+  <h3>Hello {{ userN }}! Let's check your rankings in the games!</h3>
+  <br />
+  {% for entry in entries %}
+    <h5>{{ entry.name }} : {{ entry.rank }} </h5>
+  {% endfor %}
+  </ul>
+{% endblock %}

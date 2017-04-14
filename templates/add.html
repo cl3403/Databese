@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+    {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+    <form action="{{ url_for('add') }}" method=post>
+      <dl>
+        <dt>Add another game that you play: 
+        <select name="gamename">
+	  <option value="Resident Evil VII: Biohazard">Resident Evil VII: Biohazard</option>
+          <option value="Pokemon Sun/Moon">Pokemon Sun/Moon</option>
+          <option value="Kingdom Hearts HD 2.8 Final Chapter Prologue">Kingdom Hearts HD 2.8 Final Chapter Prologue</option>
+	  <option value="FIFA 17">FIFA 17</option>
+          <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+          <option value="Final Fantasy XV">Final Fantasy XV</option>
+	  <option value="Watch Dogs 2">Watch Dogs 2</option>
+          <option value="Call of Duty: Infinite Warfare">Call of Duty: Infinite Warfare</option>
+          <option value="Uncharted 4: A Thiefs End">Uncharted 4: A Thiefs End</option>
+          <option value="Battlefield 1">Battlefield 1</option>
+	  <option value="Super Mario Maker">Super Mario Maker</option>
+          <option value="Digimon World: Next Order">Digimon World: Next Order</option>
+          <option value="Gravity Rush 2">Gravity Rush 2</option>
+          <option value="Madden NFL 17">Madden NFL 17</option>
+          <option value="Mario Kart 7">Mario Kart 7</option>
+          <option value="Chinese Paladin 6">Chinese Paladin 6</option>
+        </select>	  
+        <dd><input type=submit value=Submit>
+      </dl>
+    </form>
+{% endblock %}
+    
+

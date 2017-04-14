@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+  <h2>Game Info</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('info') }}" method=post>
+    <dl>
+      <dt>What game would you like to know more about:
+      <dd><input type=text name=gamename>
+      <dd><input type=submit value=GetInfo>
+    </dl>
+  </form>
+  {% if entry %}
+    <ul class=entries>
+    <h3>Let's learn more about {{ entry.name }}!</h3>
+    <br />  
+    <h2>Sales: {{ entry.sales }}</h2>
+    <h2>Genre: {{ entry.genre }}</h2>
+    <h2>Mode: {{ entry.mode }}</h2>
+    <h2>Company: {{ entry.company }}</h2>
+    <h2>Year: {{ entry.year }}</h2>
+    <h2>Platform: {{ entry.platform }}</h2>
+    </ul>
+  {% endif %}
+{% endblock %}

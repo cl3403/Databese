@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block body %}
+  <h2>Game Chart</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('chart') }}" method=post>
+    <dl>
+      <dt>Rank Games by: 
+      <select name="criteria">
+	<option value="max">Highest Review</option>
+        <option value="avg">Average Review</option>
+        <option value="sales">Sales</option>
+        <option value="time">Most Recent</option>
+      </select>
+
+      <dt>Number of Games: 
+      <select name="number">
+	<option value="1">Top 1</option>
+        <option value="3">Top 3</option>
+        <option value="5">Top 5</option>
+        <option value="10">Top 10</option>
+      </select>
+      <dd><input type=submit value=Result>
+  </form>
+  {% if entries %}
+    {% if maxV %}
+      <ul class=entries>
+        <h3>Games Ranked by Highest Review Scores!</h3>
+      <br />
+      {% for entry in entries %}
+        <h4>{{ entry.name }} &nbsp; &nbsp;   :  &nbsp; &nbsp; {{ entry.number }} </h4>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if avgV %}
+      <ul class=entries>
+        <h3>Games Ranked by Average Review Scores!</h3>
+      <br />
+      {% for entry in entries %}
+        <h4>{{ entry.name }} &nbsp; &nbsp;   :  &nbsp; &nbsp; {{ entry.number }} </h4>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if salesV %}
+      <ul class=entries>
+        <h3>Games with Most Sales!</h3>
+      <br />
+      {% for entry in entries %}
+        <h4>{{ entry.name }} &nbsp; &nbsp;   :  &nbsp; &nbsp; {{ entry.number }} </h4>
+      {% endfor %}
+      </ul>
+    {% endif %}
+    {% if timeV %}
+      <ul class=entries>
+        <h3>Most Recent Games!</h3>
+      <br />
+      {% for entry in entries %}
+        <h4>{{ entry.name }} &nbsp; &nbsp;   :  &nbsp; &nbsp; {{ entry.number }} </h4>
+      {% endfor %}
+      </ul>
+    {% endif %} 
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+  <ul class=entries>
+  <h3>The Top 10 Most Played Games!</h3>
+  <br />
+  {% for entry in entries %}
+    <h2>{{ entry.name }} </h2>
+  {% endfor %}
+  </ul>
+{% endblock %}
